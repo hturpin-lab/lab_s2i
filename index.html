@@ -15,14 +15,15 @@
     <!-- Vérification Google Search Console (à remplacer par votre code) -->
     <meta name="google-site-verification" content="VOTRE_CODE_GOOGLE_SEARCH_CONSOLE">
     
-    <!-- Politique de sécurité Content Security Policy (CSP) -->
+    <!-- Politique de sécurité Content Security Policy (CSP) - Allégée pour compatibilité -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-        img-src 'self' data: https: http:;
+        img-src 'self' data: https://upload.wikimedia.org https://pedagogie.ac-guadeloupe.fr https://encrypted-tbn0.gstatic.com;
         connect-src 'self';
+        frame-src 'self' https://www.tinkercad.com https://concours.castor-informatique.fr https://drive.google.com https://sites.google.com https://nuage07.apps.education.fr;
         frame-ancestors 'none';
         base-uri 'self';
         form-action 'self';
@@ -30,9 +31,6 @@
     
     <!-- Referrer Policy -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    
-    <!-- Permissions Policy -->
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     
     <!-- X-Content-Type-Options -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -43,31 +41,21 @@
     <!-- X-XSS-Protection -->
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     
-    <!-- Cache Control pour les pages sensibles -->
+    <!-- Cache Control -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     
-    <!-- Open Graph pour les réseaux sociaux (renforce la crédibilité) -->
-    <meta property="og:title" content="STI2D - Lycée Jean Claude Fruteau">
-    <meta property="og:description" content="Site de la filière STI2D. Ressources pédagogiques et projets innovants en développement durable.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:site_name" content="STI2D Lycée Jean Claude Fruteau">
+    <!-- Pas de réseaux sociaux - Suppression des balises Open Graph et Twitter Card -->
     
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="STI2D - Lycée Jean Claude Fruteau">
-    <meta name="twitter:description" content="Site de la filière STI2D. Ressources pédagogiques et projets innovants.">
-    
-    <!-- Favicon pour crédibilité -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='https://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌱%3C/text%3E%3C/svg%3E">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Vos styles existants - inchangés */
+        /* Vos styles existants */
         * {
             margin: 0;
             padding: 0;
@@ -112,7 +100,7 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* Bandeau officiel (AJOUTÉ pour crédibilité) */
+        /* Bandeau officiel */
         .official-badge {
             background: #1a4d2a;
             color: #e8f5e9;
@@ -127,7 +115,7 @@
             text-decoration: none;
         }
 
-        /* Hero Section avec image en arrière-plan */
+        /* Hero Section */
         .hero {
             position: relative;
             display: flex;
@@ -215,7 +203,7 @@
             padding: 2rem 1.5rem;
         }
 
-        /* Deux colonnes pour les sections Échéances et Contenu diaporama */
+        /* Deux colonnes */
         .two-columns {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -223,20 +211,20 @@
             margin-bottom: 2rem;
         }
 
-        /* Timeline Section - Réduite */
+        /* Timeline Section */
         .timeline-section {
             background: white;
             border-radius: 24px;
-            padding: 1.2rem 1.2rem;
+            padding: 1.2rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             height: 100%;
         }
 
-        /* Requirements - Réduite */
+        /* Requirements */
         .requirements {
             background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
             border-radius: 24px;
-            padding: 1.2rem 1.2rem;
+            padding: 1.2rem;
             height: 100%;
         }
 
@@ -313,7 +301,7 @@
             font-size: 0.8rem;
         }
 
-        /* Cards Grid - Ressources */
+        /* Cards Grid */
         .section-header {
             display: flex;
             align-items: center;
@@ -342,7 +330,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
         }
 
-        /* Card Header avec image d'arrière-plan */
         .card-header {
             position: relative;
             padding: 1.2rem;
@@ -358,7 +345,6 @@
             height: 110px;
         }
 
-        /* Image de fond du card-header - Taille fixe 405px de large */
         .card-header-bg {
             position: absolute;
             top: 0;
@@ -370,7 +356,6 @@
             z-index: 0;
         }
 
-        /* Overlay sombre pour lisibilité du texte */
         .card-header::before {
             content: '';
             position: absolute;
@@ -425,7 +410,7 @@
             gap: 0.6rem;
         }
 
-        /* Links Section - Dépôt de documents */
+        /* Links Section */
         .links-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -519,10 +504,6 @@
             text-decoration: none;
         }
 
-        .footer .license a:hover {
-            text-decoration: underline;
-        }
-
         /* Responsive */
         @media (max-width: 900px) {
             .two-columns {
@@ -570,18 +551,17 @@
     </style>
 </head>
 <body>
-    <!-- Bandeau officiel (AJOUTÉ) -->
+    <!-- Bandeau officiel -->
     <div class="official-badge">
-        <i class="fas fa-school"></i> Site de la filiere STI2D du Lycée Jean Claude Fruteau - Académie de La Réunion 
-        | <i class="fas fa-envelope"></i> 
-        | <i class="fas fa-globe"></i> <a href="https://www.ac-reunion.fr" target="_blank">ac-reunion.fr</a>
+        <i class="fas fa-school"></i> Site de la filière STI2D du Lycée Jean Claude Fruteau - Académie de La Réunion 
+        | <i class="fas fa-globe"></i> <a href="https://www.ac-reunion.fr" target="_blank" rel="noopener noreferrer">ac-reunion.fr</a>
     </div>
     
     <div class="sustainability-banner">
         🌱 Innovation Durable | Économie Circulaire | Énergies Renouvelables | Mobilité Verte | Eco-conception ♻️
     </div>
 
-    <!-- Hero Section avec image en arrière-plan -->
+    <!-- Hero Section -->
     <section class="hero">
         <img class="hero-background" src="media/Banniere_STI2D-2.png" alt="Développement durable STI2D - Lycée Jean Claude Fruteau">
         <div class="hero-content">
@@ -597,7 +577,7 @@
     </section>
 
     <main class="main-content">
-        <!-- Deux colonnes : Échéances et Contenu diaporama -->
+        <!-- Deux colonnes -->
         <div class="two-columns">
             <!-- Échéances importantes -->
             <div class="timeline-section">
@@ -655,7 +635,7 @@
             </h2>
         </div>
         <div class="cards-grid">
-            <!-- Carte Tinkercad avec image de fond -->
+            <!-- Carte Tinkercad -->
             <div class="card">
                 <div class="card-header">
                     <img class="card-header-bg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Logo-tinkercad-wordmark.svg/3840px-Logo-tinkercad-wordmark.svg.png" alt="Tinkercad">
@@ -664,10 +644,10 @@
                 </div>
                 <div class="card-content">
                     <p>Plateforme de modélisation 3D et de simulation électronique pour vos projets de conception.</p>
-                    <a href="https://www.tinkercad.com/joinclass/G9LMY7BNR" target="_blank" rel="noopener noreferrer" class="card-link">Accéder <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://www.tinkercad.com/" target="_blank" rel="noopener noreferrer" class="card-link">Accéder <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <!-- Carte Concours CASTOR avec image de fond -->
+            <!-- Carte Concours CASTOR -->
             <div class="card">
                 <div class="card-header">
                     <img class="card-header-bg" src="https://pedagogie.ac-guadeloupe.fr/sites/default/files/styles/wide/public/2025-02/logoalgorea_2.png?itok=Ni5l5j-T" alt="Concours CASTOR">
@@ -679,7 +659,7 @@
                     <a href="https://concours.castor-informatique.fr/" target="_blank" rel="noopener noreferrer" class="card-link">Participer <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <!-- Carte Ressources STI2D avec image de fond -->
+            <!-- Carte Ressources STI2D -->
             <div class="card">
                 <div class="card-header">
                     <img class="card-header-bg" src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Google_Drive_-_New_Logo.png" alt="Ressources STI2D">
@@ -691,10 +671,11 @@
                     <a href="https://drive.google.com/drive/folders/1JHlvdxSS4oeSlBF0sfnADY_nGmVa5DEW" target="_blank" rel="noopener noreferrer" class="card-link">Voir les ressources <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <!-- Carte NewEcligne avec image de fond -->
+            <!-- Carte NewEcligne -->
             <div class="card">
                 <div class="card-header">
-                    <img class="card-header-bg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB_g_pjdouJiWmvQGJMFXE5mCclN1ACVPdxw&s" alt="NewEcligne">
+                    <!-- Image SVG inline pour éviter les problèmes HTTPS -->
+                    <img class="card-header-bg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%232e7d32'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white'%3E🌐%3C/text%3E%3C/svg%3E" alt="NewEcligne">
                     <i class="fas fa-globe"></i>
                     <h3>NewEcligne</h3>
                 </div>
@@ -717,19 +698,16 @@
                 <i class="fas fa-microchip"></i>
                 <h4>I2D - Innovation et Développement Durable</h4>
                 <p>Déposez ici vos projets I2D</p>
-                <small style="color: #4caf50;">nuage07.apps.education.fr/.../I2D</small>
             </a>
             <a href="https://nuage07.apps.education.fr/index.php/s/ctjTYtxWqZCj39C" target="_blank" rel="noopener noreferrer" class="link-card">
                 <i class="fas fa-industry"></i>
                 <h4>IT - Ingénierie et Technologie</h4>
                 <p>Déposez ici vos projets IT</p>
-                <small style="color: #4caf50;">nuage07.apps.education.fr/.../IT</small>
             </a>
             <a href="https://nuage07.apps.education.fr/index.php/s/57w6NR7GNEmwSiq" target="_blank" rel="noopener noreferrer" class="link-card">
                 <i class="fas fa-language"></i>
                 <h4>ETLV - Enseignement Technologique en Langue Vivante</h4>
                 <p>Déposez ici vos documents ETLV</p>
-                <small style="color: #4caf50;">nuage07.apps.education.fr/.../ETLV</small>
             </a>
         </div>
 
@@ -746,11 +724,8 @@
         <p><i class="fas fa-leaf"></i> STI2D - Sciences et Technologies de l'Industrie et du Développement Durable</p>
         <p>Lycée Jean Claude Fruteau - Académie de La Réunion</p>
         <div class="license">
-            <span><i class="fab fa-creative-commons"></i> Creative Commons</span>
-            <span><i class="fab fa-creative-commons-by"></i> Attribution</span>
-            <span><i class="fab fa-creative-commons-nc"></i> NonCommercial</span>
-            <span><i class="fab fa-creative-commons-sa"></i> ShareAlike</span>
-            <span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></span>
+            <span><i class="fab fa-creative-commons"></i> Creative Commons BY-NC-SA 4.0</span>
+            <span><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener noreferrer">En savoir plus</a></span>
         </div>
         <p style="font-size: 0.6rem; margin-top: 0.3rem;">Utilisation autorisée pour un usage éducatif et non commercial. Toute reproduction doit citer la source.</p>
     </footer>
